@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# Setting Files
+export XDEBUG_REMOTE_INI_FILE="/vagrant/vagrant/files/xdebug-remote.ini"
+export XDEBUG_PROFILER_INI_FILE="/vagrant/vagrant/files/xdebug-profiler.ini"
+export MYSQL_CONF_FILE="/vagrant/vagrant/files/my.cnf"
+export PHPFPM_CONF_FILE="/vagrant/vagrant/files/www.conf"
+export PHP_INI_FILE="/vagrant/vagrant/files/php-development.ini"
+export NGINX_VHOST_FILE="/vagrant/vagrant/files/vhost.conf"
+export DATABASE_NAME="database"
+
+# Set Global Environment
+rm -f /etc/profile.d/vagrant.sh
+echo 'export APPLICATION_ENV="development"' > /etc/profile.d/vagrant.sh
+chmod 755 /etc/profile.d/vagrant.sh

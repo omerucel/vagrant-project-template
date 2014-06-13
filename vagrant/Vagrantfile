@@ -1,0 +1,16 @@
+require_relative "development.rb"
+
+Vagrant.configure("2") do |config|
+    config.vbguest.auto_update = false
+
+    config.vm.box = "centos_64nocm"
+    config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box"
+
+    config.vm.provider :virtualbox do |vb|
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    end
+
+    config.vm.synced_folder "../", "/vagrant/", :mount_options => ["dmode=777", "fmode=777"]
+    config.vm.provision :shell, :path => "bootstrap.sh"
+end
