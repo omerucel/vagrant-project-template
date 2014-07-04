@@ -48,7 +48,7 @@ sleep 1
 
 echo "STARTING PHP SECTION..."
 sleep 2
-yum --enablerepo=remi-php55,remi install -y php php-pear php-pecl-xdebug php-pecl-xhprof php-mysql php-pecl-memcached php-xml php-gd php-mbstring php-mcrypt php-fpm php-gearman php-soap php-json
+yum --enablerepo=remi-php55,remi install -y php php-apc php-opcache php-pear php-pecl-xdebug php-pecl-xhprof php-mysql php-pecl-memcached php-xml php-gd php-mbstring php-mcrypt php-fpm php-gearman php-soap php-json
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
